@@ -1,0 +1,62 @@
+.checkers {
+  --item-size: 12vw;
+  --item-bg-color: #222;
+  --item-txt-dark-color: #222;
+  --item-txt-light-color: #fff;
+  
+  display: grid;
+  grid-template-columns: repeat(3, var(--item-size));
+  grid-auto-rows: var(--item-size);
+  place-content: center;
+}
+
+.checkers__item:nth-child(2n+1) {
+	background-color: var(--item-bg-color);
+  color: var(--item-txt-light-color);
+}
+
+@media all and (max-width: 1200px) {
+  .checkers {
+		grid-template-columns: repeat(2, var(--item-size));
+	}
+	
+	.checkers__item:nth-child(n) {
+		background-color: transparent;
+    color: var(--item-txt-dark-color);
+	}
+	
+	.checkers__item:nth-child(4n),
+  .checkers__item:nth-child(4n+1) {
+		background-color: var(--item-bg-color);
+    color: var(--item-txt-light-color);
+	}
+}
+
+@media all and (max-width: 768px) {
+  .checkers {
+		grid-template-columns: var(--item-size);
+	}
+	
+	.checkers__item:nth-child(n) {
+		background-color: var(--item-bg-color);
+    color: var(--item-txt-light-color);
+	}
+	
+	.checkers__item:nth-child(even) {
+		background-color: transparent;
+    color: var(--item-txt-dark-color);
+	}
+}
+
+/* design styles */
+.checkers {
+  min-height: 100vh;
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 4vw;
+}
+
+.checkers__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
